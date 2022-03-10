@@ -13,6 +13,7 @@ import java.util.List;
 public class Meeting {
 
     @Id
+    @GeneratedValue
     private Long id;
     private String name;
     @Column(name = "start_time")

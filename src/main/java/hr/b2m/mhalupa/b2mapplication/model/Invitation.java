@@ -12,6 +12,7 @@ import java.util.List;
 public class Invitation {
 
     @Id
+    @GeneratedValue
     private Long id;
     @ManyToOne
     private Meeting meeting;

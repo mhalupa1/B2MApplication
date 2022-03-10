@@ -11,6 +11,7 @@ import javax.persistence.*;
 public class UserEvent {
 
     @Id
+    @GeneratedValue
     private Long id;
     @Column(name = "created_event")
     private boolean createdEvent;

@@ -13,6 +13,7 @@ import java.util.List;
 public class InvitationStatus {
 
     @Id
+    @GeneratedValue
     private Long id;
     @Enumerated(EnumType.ORDINAL)
     private InvitationStatusEnum code;
