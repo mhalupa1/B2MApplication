@@ -29,4 +29,10 @@ public class User {
     private List<UserMeeting> userMeetings;
 
 
+    public User(String firstName, String lastName){
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+
 }

@@ -3,10 +3,8 @@ package hr.b2m.mhalupa.b2mapplication.model;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
+import java.time.OffsetDateTime;
 import java.util.List;
 
 @Getter
@@ -18,9 +16,18 @@ public class Event {
     @GeneratedValue
     private Long id;
     private String name;
+    @Column(name = "start_time")
+    private OffsetDateTime startTime;
+    @Column(name = "end_time")
+    private OffsetDateTime endTime;
     @OneToMany(mappedBy = "event")
     private List<Meeting> meetings;
     @OneToMany(mappedBy = "event")
     private List<UserEvent> eventUsers;
 
+    public Event(String name, OffsetDateTime startTime, OffsetDateTime endTime) {
+        this.name = name;
+        this.startTime = startTime;
+        this.endTime = endTime;
+    }
 }
