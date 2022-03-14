@@ -1,5 +1,6 @@
 package hr.b2m.mhalupa.b2mapplication.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,8 +24,14 @@ public class Meeting {
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
+    @ManyToOne
+    @JoinColumn(name = "meeting_status_id", referencedColumnName = "id")
+    private MeetingStatus meetingStatus;
     @OneToMany(mappedBy = "meeting")
+    @JsonIgnore
     private List<Invitation> invitations;
     @OneToMany(mappedBy = "meeting")
+    @JsonIgnore
     private List<UserMeeting> userMeetings;
+
 }

@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,6 +14,7 @@ public class Invitation {
     @GeneratedValue
     private Long id;
     @ManyToOne
+    @JoinColumn(name ="meeting_id", referencedColumnName = "id")
     private Meeting meeting;
     @ManyToOne
     @JoinColumn(name = "invitation_status_id", referencedColumnName = "id")
@@ -23,4 +23,14 @@ public class Invitation {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
 
+
+    public Invitation(User user, Meeting meeting, InvitationStatus invitationStatus) {
+        this.meeting = meeting;
+        this.invitationStatus = invitationStatus;
+        this.user = user;
+    }
+
+    public Invitation() {
+
+    }
 }

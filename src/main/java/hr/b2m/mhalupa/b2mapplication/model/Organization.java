@@ -1,6 +1,7 @@
 package hr.b2m.mhalupa.b2mapplication.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,5 +20,6 @@ public class Organization {
     @Column(name = "created_event")
     private boolean createdEvent;
     @OneToMany(mappedBy = "organization")
+    @JsonIgnore
     private List<User> users;
 }

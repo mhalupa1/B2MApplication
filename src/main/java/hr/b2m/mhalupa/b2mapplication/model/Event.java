@@ -1,5 +1,6 @@
 package hr.b2m.mhalupa.b2mapplication.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,8 +22,10 @@ public class Event {
     @Column(name = "end_time")
     private OffsetDateTime endTime;
     @OneToMany(mappedBy = "event")
+    @JsonIgnore
     private List<Meeting> meetings;
     @OneToMany(mappedBy = "event")
+    @JsonIgnore
     private List<UserEvent> eventUsers;
 
     public Event(String name, OffsetDateTime startTime, OffsetDateTime endTime) {
@@ -30,4 +33,13 @@ public class Event {
         this.startTime = startTime;
         this.endTime = endTime;
     }
+
+    public Event(Long id){
+        this.id = id;
+    }
+
+    public Event() {
+
+    }
+
 }

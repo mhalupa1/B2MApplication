@@ -14,11 +14,20 @@ public class UserEvent {
     @GeneratedValue
     private Long id;
     @Column(name = "created_event")
-    private boolean createdEvent;
+    private Boolean createdEvent;
     @ManyToOne
     @JoinColumn(name = "event_id", referencedColumnName = "id")
     private Event event;
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private User user;
+
+    public UserEvent(User user,Event event) {
+        this.event = event;
+        this.user = user;
+    }
+
+    public UserEvent() {
+
+    }
 }

@@ -3,7 +3,6 @@ package hr.b2m.mhalupa.b2mapplication.service;
 import hr.b2m.mhalupa.b2mapplication.dao.UserDAO;
 import hr.b2m.mhalupa.b2mapplication.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service

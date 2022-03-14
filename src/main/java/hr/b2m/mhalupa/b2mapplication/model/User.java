@@ -1,5 +1,6 @@
 package hr.b2m.mhalupa.b2mapplication.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,10 +23,13 @@ public class User {
     @JoinColumn(name = "organization_id", referencedColumnName = "id")
     private Organization organization;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<Invitation> invitations;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<UserEvent> userEvents;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private List<UserMeeting> userMeetings;
 
 
@@ -34,5 +38,12 @@ public class User {
         this.lastName = lastName;
     }
 
+    public User(Long id){
+        this.id = id;
+    }
 
+
+    public User() {
+
+    }
 }
